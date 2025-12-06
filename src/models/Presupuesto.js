@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 
-const ClienteSchema = new mongoose.Schema({
-  nombre: String,
-  dni: String,
-  cuit: String,
+const PresupuestoSchema = new mongoose.Schema({
+  cliente: Object,
+  items: Array,
+  total: Number,
+  fecha: String,
 });
 
-export default mongoose.model("Cliente", ClienteSchema);
+export default mongoose.model("Presupuesto", PresupuestoSchema);
