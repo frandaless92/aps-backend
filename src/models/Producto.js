@@ -1,13 +1,9 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
-dotenv.config();
 
-export const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log("MongoDB conectado ✔");
-  } catch (err) {
-    console.error("Error conectando a MongoDB", err);
-    process.exit(1);
-  }
-};
+const ProductoSchema = new mongoose.Schema({
+  nombre: String,
+  categoria: String,
+  precio: Number,
+});
+
+export default mongoose.model("Producto", ProductoSchema);
